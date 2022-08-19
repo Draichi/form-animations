@@ -43,8 +43,9 @@ form {
   color: #072032;
 }
 
-.contact-left, .contact-right {
-  flex:1;
+.contact-left,
+.contact-right {
+  flex: 1;
 }
 
 .contact-right {
@@ -60,6 +61,7 @@ form {
   top: 0;
   border: none;
   background: transparent;
+  outline: none;
 }
 
 .input-container {
@@ -79,6 +81,8 @@ form {
   left: 0;
   bottom: 0;
   width: 100%;
+  overflow: visible;
+  opacity: 0.8;
 }
 
 .checkbox-label {
@@ -105,7 +109,8 @@ form {
   overflow: hidden;
 }
 
-.checkbox, .checkmark {
+.checkbox,
+.checkmark {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -130,7 +135,7 @@ form {
 }
 
 button {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 0.6rem;
   background-color: #6190e8;
