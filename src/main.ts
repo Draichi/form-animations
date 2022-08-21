@@ -37,5 +37,31 @@ containers.forEach((container) => {
       },
       "<50%"
     );
+    animations.to(
+      placeholder,
+      {
+        y: -15,
+        scale: 0.7,
+        duration: 0.5,
+        ease: "Power2.easeOut",
+      },
+      "<15%"
+    );
   });
+
+  input?.addEventListener("blur", () => {
+    if (input.value) {
+      return
+    }
+
+    gsap.to(
+      placeholder,
+      {
+        y:0,
+        scale: 1,
+        duration: 0.5,
+        ease: "Power2.easeOut",
+      }
+    );
+  })
 });

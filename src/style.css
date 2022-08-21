@@ -62,6 +62,7 @@ form {
   border: none;
   background: transparent;
   outline: none;
+  color: #777474;
 }
 
 .input-container {
@@ -74,6 +75,7 @@ form {
   pointer-events: none;
   font-size: 0.8rem;
   opacity: 0.8;
+  transform-origin: left;
 }
 
 .line-svg {
