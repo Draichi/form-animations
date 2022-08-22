@@ -28,6 +28,7 @@
           <p class="placeholder">Your Name</p>
           <input
             type="text"
+            required
             name="name"
             id="name"
             autocomplete="off"
@@ -54,6 +55,7 @@
           <input
             type="email"
             name="email"
+            required
             id="email"
             autocomplete="off"
             class="input-email input"
@@ -80,6 +82,10 @@
             type="tel"
             name="tel"
             id="tel"
+            aria-label="9 digit telphone"
+            required
+            pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+            title="Telephone number based on USA pattern"
             autocomplete="off"
             class="input-number input"
           />
