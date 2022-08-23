@@ -56,8 +56,12 @@ const colorizeInputValidation = (
 };
 
 inputContainerElements.forEach((inputContainerElement) => {
-  const inputElement = inputContainerElement.querySelector(".input") as HTMLInputElement;
-  const line = inputContainerElement.querySelector(".elastic-line") as SVGPathElement;
+  const inputElement = inputContainerElement.querySelector(
+    ".input"
+  ) as HTMLInputElement;
+  const line = inputContainerElement.querySelector(
+    ".elastic-line"
+  ) as SVGPathElement;
   const placeholder = inputContainerElement.querySelector(
     ".placeholder"
   ) as HTMLParagraphElement;
@@ -84,7 +88,6 @@ inputContainerElements.forEach((inputContainerElement) => {
     });
   });
 
-
   inputElement.addEventListener("input", () => {
     clearTimeout(inputTimeoutId);
 
@@ -96,4 +99,34 @@ inputContainerElements.forEach((inputContainerElement) => {
       }
     }, 400);
   });
+});
+
+const checkbox = document.querySelector(".checkbox") as HTMLInputElement;
+const tickMarkPath = document.querySelector(
+  ".tick-mark path"
+) as SVGPathElement;
+const pathLength = tickMarkPath.getTotalLength();
+const checkboxAnimation = gsap.timeline({
+  defaults: { duration: 0.5, ease: "Power2.easeOut" },
+});
+gsap.set(tickMarkPath, {
+  strokeDasharray: pathLength,
+  strokeDashoffset: pathLength,
+});
+
+checkbox.addEventListener("change", () => {
+  if (checkbox.checked) {
+    checkboxAnimation.to(".checkbox-fill", { y: "-100%" });
+    checkboxAnimation.fromTo(
+      tickMarkPath,
+      { strokeDashoffset: pathLength },
+      { strokeDashoffset: 0 },
+      "<50%"
+    );
+    checkboxAnimation.to(".checkbox-label", { color: COLOR_VALID }, "<");
+  } else {
+    checkboxAnimation.to(tickMarkPath, { strokeDashoffset: pathLength });
+    checkboxAnimation.to(".checkbox-fill", { y: 0 }, "<50%");
+    checkboxAnimation.to(".checkbox-label", { color: "#777474" }, "<");
+  }
 });
