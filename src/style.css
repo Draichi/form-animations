@@ -44,6 +44,10 @@ form {
   color: #072032;
 }
 
+.description {
+  margin-top: 0.8rem;
+}
+
 .contact-left,
 .contact-right {
   flex: 1;
@@ -53,6 +57,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 0.8rem;
 }
 
 .input {
@@ -172,6 +177,28 @@ button {
   color: #777474;
   display: none;
 }
+
+@media (max-width: 480px) {
+  form {
+    width: 90vw;
+    height: 80vh;
+    flex-direction: column;
+    padding: 6.5rem 3rem;
+  }
+
+  .contact-right {
+    margin-left: 0;
+  }
+
+  .input-container {
+    margin: 0.5rem 0;
+  }
+
+  #character {
+    transform: translate(0, 10%) scale(0.4);
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
